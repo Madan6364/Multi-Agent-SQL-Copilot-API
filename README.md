@@ -1,11 +1,11 @@
-# 🚀 Multi-Agent SQL Copilot API
+###  Multi-Agent SQL Copilot API
 
 An AI-powered API that converts natural language queries into SQL using a multi-agent architecture.
 Built with FastAPI, this system demonstrates how multiple agents collaborate to generate, validate, optimize, and analyze SQL queries.
 
 ---
 
-## 🔥 Features
+####  Features
 
 * Natural Language → SQL conversion
 * Multi-agent pipeline (Generator, Validator, Optimizer, Analyst)
@@ -15,7 +15,7 @@ Built with FastAPI, this system demonstrates how multiple agents collaborate to 
 
 ---
 
-## 🛠 Tech Stack
+#### Tech Stack
 
 * Python
 * FastAPI
@@ -25,7 +25,7 @@ Built with FastAPI, this system demonstrates how multiple agents collaborate to 
 
 ---
 
-## 🚀 Run Locally
+#### Run Locally
 
 ```bash
 pip install -r requirements.txt
@@ -40,7 +40,7 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## 🐳 Run with Docker
+####  Run with Docker
 
 ```bash
 docker build -t multi-agent-sql-copilot .
@@ -49,7 +49,7 @@ docker run -p 8000:8000 multi-agent-sql-copilot
 
 ---
 
-## 📡 API Example
+#### API Example
 
 **Request**
 
@@ -72,7 +72,7 @@ GET /query?user_query=show all users
 
 ---
 
-## 📂 Structure
+#### Structure
 
 ```
 app/
