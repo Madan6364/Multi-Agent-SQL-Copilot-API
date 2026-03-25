@@ -1,85 +1,83 @@
-###  Multi-Agent SQL Copilot API
+## Multi-Agent SQL Copilot API
+### Overview
 
-An AI-powered API that converts natural language queries into SQL using a multi-agent architecture.
-Built with FastAPI, this system demonstrates how multiple agents collaborate to generate, validate, optimize, and analyze SQL queries.
+This project is a Multi-Agent SQL Copilot built using FastAPI and Python.
+It allows users to ask questions in natural language (English), converts the question into an SQL query, executes it on a SQLite database, and returns the results along with a short analysis.
 
----
+This project demonstrates how multiple agents can work together to automate data analysis using natural language queries.
 
-####  Features
+#### Example
 
-* Natural Language → SQL conversion
-* Multi-agent pipeline (Generator, Validator, Optimizer, Analyst)
-* FastAPI-based REST API
-* SQLite database integration
-* Docker support
+User Input
 
----
-
-#### Tech Stack
-
-* Python
-* FastAPI
-* SQLite
-* Docker
-* LLM (OpenAI / Ollama)
-
----
-
-#### Run Locally
-
-```bash
-pip install -r requirements.txt
-uvicorn app.main:app --reload
-```
-
-Open:
-
-```
-http://127.0.0.1:8000/docs
-```
-
----
-
-####  Run with Docker
-
-```bash
-docker build -t multi-agent-sql-copilot .
-docker run -p 8000:8000 multi-agent-sql-copilot
-```
-
----
-
-#### API Example
-
-**Request**
-
-```
-GET /query?user_query=show all users
-```
-
-**Response**
-
-```json
 {
-  "sql": "SELECT * FROM sales LIMIT 10;",
-  "result": [[1, "Laptop", 1000, "India"]],
+  "user_query": "show all sales"
+}
+
+#### Response
+
+{
+  "user_query": "show all sales",
+  "sql": "SELECT * FROM sales",
+  "result": [
+    [1, "Laptop", 1000, "India"],
+    [2, "Mobile", 500, "USA"],
+    [3, "Tablet", 300, "UK"]
+  ],
   "analysis": {
     "summary": "Data analysis completed",
-    "rows": 1
+    "rows": 3
   }
 }
-```
+#### Features
+Convert natural language questions into SQL queries
+Execute SQL queries on a SQLite database
+Return real-time database results
+Automatic result analysis
+Multi-agent architecture
+FastAPI Swagger UI support
+#### Project Structure
+multi-agent-sql-copilot
+│
+├── app
+│   ├── main.py
+│   ├── agents
+│   │   ├── sql_generator.py
+│   │   ├── validator_agent.py
+│   │   └── analyst.py
+│   │
+│   └── db
+│       └── database.py
+│
+├── create_db.py
+├── sales.db
+└── requirements.txt
+#### How It Works
+User asks a question in natural language
+SQL Generator Agent converts the question into SQL
+Validator Agent checks the query
+Database executes the SQL query
+Analyst Agent analyzes the result and returns a summary
+#### How to Run the Project
 
----
+Step 1 – Install dependencies
 
-#### Structure
+pip install -r requirements.txt
 
-```
-app/
- ├── agents/
- ├── db/
- ├── config.py
- └── main.py
+Step 2 – Create database
+
+python create_db.py
+
+Step 3 – Run the API
+
+python -m uvicorn app.main:app --reload
+
+Step 4 – Open Swagger UI
+
+http://127.0.0.1:8000/docs
+#### Technologies Used
+
+Python, FastAPI, SQLite, Multi-Agent Architecture, REST API
 ```
 
 ---
